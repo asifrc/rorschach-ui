@@ -1,14 +1,14 @@
 import React from 'react';
 
 export default class InkBlot extends React.Component {
-  inkblotUrl() {
-    return this.props.url;
-  };
-
   render() {
     return (
-      <div className="inkblot">
-        <img src={this.inkblotUrl()} alt="inkblot"/>
+      <div className="inkblotcard">
+        <div className="inkblot">
+          <img src={this.props.url} alt="inkblot"/>
+        </div>
+        <textarea></textarea>
+        <button onClick={this.props.loadNext}>Next</button>
       </div>
     );
   }

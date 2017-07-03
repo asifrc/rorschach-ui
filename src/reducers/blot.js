@@ -15,7 +15,7 @@ export default function blot(state, action) {
     case RECEIVE_NEXT:
       return Object.assign({}, state, {
         requestInProgress: false,
-        url: action.data.url
+        url: action.blot.url
       });
     default:
       return state;

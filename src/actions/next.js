@@ -1,14 +1,27 @@
 import { REQUEST_NEXT, RECEIVE_NEXT } from '../constants/ActionTypes';
+import InkBlotsAPI from '../api/inkblots'
 
-export function requestNext() {
+const api = new InkBlotsAPI();
+
+function requestNext(data) {
   return {
     type: REQUEST_NEXT
   };
 };
 
-export function receiveNext(data) {
+function receiveNext(blot) {
   return {
     type: RECEIVE_NEXT,
-    data
+    blot
   };
 };
+
+export function fetchNext() {
+  return function(dispatch) {
+    dispatch(requestNext());
+    api.getRandomBlot( blot => {
+      dispatch(receiveNext(blot));
+    });
+  };
+};
+
