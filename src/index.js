@@ -5,6 +5,8 @@ import { createLogger } from 'redux-logger'
 import { connect, Provider } from 'react-redux'
 import $ from 'webpack-zepto'
 
+import InkBlot from './components/InkBlot'
+
 const loggerMiddleware = createLogger();
 
 function blot(state, action) {
@@ -29,19 +31,6 @@ function blot(state, action) {
   }
 };
 
-class InkBlot extends React.Component {
-  inkblotUrl() {
-    return store.getState().url;
-  };
-
-  render() {
-    return (
-      <div className="inkblot">
-        <img src={this.inkblotUrl()} alt="inkblot"/>
-      </div>
-    );
-  }
-}
 
 const mapStateToProps = state => {
   return {
@@ -71,7 +60,7 @@ class NextButton extends React.Component {
   };
 };
 
-class Card extends React.Component {
+class InkBlotCard extends React.Component {
   render() {
     return (
         <div>
@@ -86,7 +75,7 @@ class Card extends React.Component {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Card />
+    <InkBlotCard />
   </Provider>
   ,
   document.getElementById('root')
