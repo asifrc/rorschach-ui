@@ -1,5 +1,5 @@
 import { RESPONSES_GET, RESPONSES_RESULT } from '../constants/ActionTypes';
-import ResponseAPI from '../api/inkblots'
+import ResponseAPI from '../api/responses'
 
 const api = new ResponseAPI();
 
@@ -19,8 +19,8 @@ function receiveResponses(responses) {
 export function fetchAll() {
   return function(dispatch) {
     dispatch(getResponses());
-    api.getAllReponses( responses => {
-      dispatch(receiveResponses(responses));
+    api.getAllResponses( inkblots => {
+      dispatch(receiveResponses({inkblots}));
     });
   };
 };

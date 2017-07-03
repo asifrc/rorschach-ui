@@ -7,7 +7,6 @@ export default function blot(state, action) {
       requestInProgress: false
     };
   }
-    console.log(state,action);
   switch (action.type) {
     case INKBLOT_GET:
       return Object.assign({}, state, {

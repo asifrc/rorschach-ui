@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import { fetchAll } from '../actions/responses'
-import InkBlotCard from './InkBlotCard'
 
 
 class Responses extends React.Component {
   render() {
     return (
       <div className="responses">
+        <button onClick={this.props.loadAll}>Refresh</button>
         {this.props.responses.inkblots.map( blot => (
-           <div className="inkblotcard">
+           <div className="inkblotcard" key={blot.id}>
              <div className="inkblot">
                <img src={blot.url} alt="inkblot"/>
              </div>

@@ -7,7 +7,7 @@ const configureStore = () => {
   const middleware = [
     thunkMiddleware
   ];
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV !== "production") {
     middleware.push(createLogger());
   }
 

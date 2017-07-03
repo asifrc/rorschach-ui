@@ -1,7 +1,7 @@
 import $ from 'webpack-zepto'
 
 export default class ResponseAPI {
-  getAllReponses(cb) {
+  getAllResponses(cb) {
     $.get('/responses', cb);
   }
 };
