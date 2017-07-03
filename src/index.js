@@ -1,31 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect, Provider } from 'react-redux'
 
 import configureStore from './configureStore'
-import InkBlot from './components/InkBlot'
-import { fetchNext } from './actions/next'
-
-
-const mapStateToProps = state => {
-  return {
-    url: state.blot.url
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    loadNext: () => dispatch(fetchNext())
-  };
-};
-const InkBlotPanel = connect(mapStateToProps, mapDispatchToProps)(InkBlot);
+import Root from './components/Root'
 
 const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <InkBlotPanel />
-  </Provider>
-  ,
+  <Root store={store} />,
   document.getElementById('root')
 );
