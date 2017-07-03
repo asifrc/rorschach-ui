@@ -6,38 +6,16 @@ import { connect, Provider } from 'react-redux'
 import $ from 'webpack-zepto'
 
 import InkBlot from './components/InkBlot'
+import reducer from './reducers'
 
 const loggerMiddleware = createLogger();
 
-function blot(state, action) {
-  if (typeof state === "undefined") {
-    return {
-      url: "/inkblots/blot/1/0",
-      requestInProgress: false
-    };
-  }
-  switch (action.type) {
-    case "REQUEST_NEXT":
-      return Object.assign({}, state, {
-        requestInProgress: true
-      });
-    case "RECEIVE_NEXT":
-      return Object.assign({}, state, {
-        requestInProgress: false,
-        url: action.data.url
-      });
-    default:
-      return state;
-  }
-};
-
-
 const mapStateToProps = state => {
   return {
-    url: state.url
+    url: state.blot.url
   };
 };
-const store = createStore(blot, applyMiddleware(loggerMiddleware))
+const store = createStore(reducer, applyMiddleware(loggerMiddleware))
 const InkBlotPanel = connect(mapStateToProps)(InkBlot);
 
 class NextButton extends React.Component {
