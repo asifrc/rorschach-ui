@@ -1,26 +1,26 @@
-import { REQUEST_NEXT, RECEIVE_NEXT } from '../constants/ActionTypes';
+import { GET, RESPONSE } from '../constants/ActionTypes';
 import InkBlotsAPI from '../api/inkblots'
 
 const api = new InkBlotsAPI();
 
-function requestNext(data) {
+function getNext(data) {
   return {
-    type: REQUEST_NEXT
+    type: GET
   };
 };
 
-function receiveNext(blot) {
+function nextResponse(blot) {
   return {
-    type: RECEIVE_NEXT,
+    type: RESPONSE,
     blot
   };
 };
 
 export function fetchNext() {
   return function(dispatch) {
-    dispatch(requestNext());
+    dispatch(getNext());
     api.getRandomBlot( blot => {
-      dispatch(receiveNext(blot));
+      dispatch(nextResponse(blot));
     });
   };
 };

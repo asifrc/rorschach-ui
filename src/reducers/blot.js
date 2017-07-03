@@ -1,4 +1,4 @@
-import { REQUEST_NEXT, RECEIVE_NEXT } from '../constants/ActionTypes';
+import { GET, RESPONSE } from '../constants/ActionTypes';
 
 export default function blot(state, action) {
   if (typeof state === "undefined") {
@@ -8,11 +8,11 @@ export default function blot(state, action) {
     };
   }
   switch (action.type) {
-    case REQUEST_NEXT:
+    case GET:
       return Object.assign({}, state, {
         requestInProgress: true
       });
-    case RECEIVE_NEXT:
+    case RESPONSE:
       return Object.assign({}, state, {
         requestInProgress: false,
         url: action.blot.url
