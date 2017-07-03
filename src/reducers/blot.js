@@ -1,4 +1,4 @@
-import { GET, RESPONSE } from '../constants/ActionTypes';
+import { INKBLOT_GET, INKBLOT_RESULT } from '../constants/ActionTypes';
 
 export default function blot(state, action) {
   if (typeof state === "undefined") {
@@ -7,12 +7,13 @@ export default function blot(state, action) {
       requestInProgress: false
     };
   }
+    console.log(state,action);
   switch (action.type) {
-    case GET:
+    case INKBLOT_GET:
       return Object.assign({}, state, {
         requestInProgress: true
       });
-    case RESPONSE:
+    case INKBLOT_RESULT:
       return Object.assign({}, state, {
         requestInProgress: false,
         url: action.blot.url

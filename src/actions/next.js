@@ -1,17 +1,17 @@
-import { GET, RESPONSE } from '../constants/ActionTypes';
+import { INKBLOT_GET, INKBLOT_RESULT } from '../constants/ActionTypes';
 import InkBlotsAPI from '../api/inkblots'
 
 const api = new InkBlotsAPI();
 
 function getNext(data) {
   return {
-    type: GET
+    type: INKBLOT_GET
   };
 };
 
 function nextResponse(blot) {
   return {
-    type: RESPONSE,
+    type: INKBLOT_RESULT,
     blot
   };
 };
