@@ -7,6 +7,7 @@ import $ from 'webpack-zepto'
 
 import InkBlot from './components/InkBlot'
 import reducer from './reducers'
+import { requestNext, receiveNext } from './actions/next'
 
 const loggerMiddleware = createLogger();
 
@@ -20,14 +21,9 @@ const InkBlotPanel = connect(mapStateToProps)(InkBlot);
 
 class NextButton extends React.Component {
   loadNext() {
-    store.dispatch({
-      type: "REQUEST_NEXT"
-    });
+    store.dispatch(requestNext());
     $.get('/inkblots', data => {
-         store.dispatch({
-           type: "RECEIVE_NEXT",
-           data
-         });
+         store.dispatch(receiveNext(data));
       });
   };
 
