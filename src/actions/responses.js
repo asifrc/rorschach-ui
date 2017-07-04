@@ -1,5 +1,6 @@
-import { RESPONSES_GET, RESPONSES_RESULT } from '../constants/ActionTypes';
+import { RESPONSES_GET, RESPONSES_RESULT, RESPONSE_SEND } from '../constants/ActionTypes';
 import ResponseAPI from '../api/responses'
+import { fetchNext } from './next';
 
 const api = new ResponseAPI();
 
@@ -25,3 +26,19 @@ export function fetchAll() {
   };
 };
 
+function sendResponse(data) {
+  return {
+    type: RESPONSE_SEND,
+    data
+  };
+};
+
+export function saveResponse(response) {
+  return function(dispatch) {
+    dispatch(sendResponse(response));
+    api.saveResponse(response, () => {
+      dispatch(fetchNext());
+      dispatch(fetchAll());
+    });
+  };
+};

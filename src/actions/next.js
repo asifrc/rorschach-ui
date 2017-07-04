@@ -10,6 +10,7 @@ function getNext(data) {
 };
 
 function nextResponse(blot) {
+  blot.description = "";
   return {
     type: INKBLOT_RESULT,
     blot

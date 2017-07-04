@@ -1,4 +1,4 @@
-import { RESPONSES_GET, RESPONSES_RESULT } from '../constants/ActionTypes';
+import { RESPONSES_GET, RESPONSES_RESULT, RESPONSE_SEND } from '../constants/ActionTypes';
 
 
 export default function responses(state, action) {
@@ -10,6 +10,7 @@ export default function responses(state, action) {
   }
   switch (action.type) {
     case RESPONSES_GET:
+    case RESPONSE_SEND:
       return Object.assign({}, state, {
         requestInProgress: true
       });
