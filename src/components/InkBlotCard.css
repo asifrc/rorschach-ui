@@ -1,0 +1,54 @@
+.inkblotcard {
+  width: 225px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px #888888;
+  margin: 15px;
+  display: block;
+  -webkit-backface-visibility: hidden;
+}
+
+.inkblotcard *, .responses * {
+  font-family: 'Cedarville Cursive', cursive;
+}
+
+
+.inkblotcard:hover {
+  box-shadow: 3px 3px 20px #888888;
+}
+
+.inkblotcard img {
+  width: 100%;
+}
+
+.inkblotcard textarea {
+  width: 100%;
+}
+
+.responses .inkblotcard {
+  float: left;
+}
+
+.survey {
+  width: 250px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.centerButton {
+  margin: auto;
+}
+.responses {
+  padding-top: 20px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  background-color: #584a4a;
+  border: none;
+  color: #ffffff;
+  margin: 5px auto 5px auto;
+  font-size: 16pt;
+  max-width: 250px;
+  padding: 5px;
+}
